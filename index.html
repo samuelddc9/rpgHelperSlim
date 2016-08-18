@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html data-ng-app="rpgHelperApp">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta id="myViewport" name="viewport" content="width=device-width, initial-scale=1">
+	<title>RPG HELPER</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/styles2.css" title="default">
+	<!--		<link rel="stylesheet" href="css/flatbuttons.css" >-->
+</head>
+
+<body>
+	<div data-role="page" data-ng-controller="rpgHelperController">
+		<div id="mainMenu"> <img id="menuLogo" src="images/logo.png" />
+			<div id="mainMenuItemHolder">
+				<div class="mainMenuItem" ng-click="showOrHideMenu()"> <img class="mainMenuIcon" src="images/icons/encounters.png" />
+					<div class="mainMenuName"> Encounters </div>
+				</div>
+				<div class="mainMenuItem" ng-click="showOrHideMenu()"> <img class="mainMenuIcon" src="images/icons/namesIcon.png" />
+					<div class="mainMenuName">Encounters </div>
+				</div>
+				<div class="mainMenuItem" ng-click="showOrHideMenu()"> <img class="mainMenuIcon" src="images/icons/char.png">
+					<div class="mainMenuName">Encounters </div>
+				</div>
+				<div class="mainMenuItem" ng-click="showOrHideMenu()"> <img class="mainMenuIcon" src="images/icons/mago.png" />
+					<div class="mainMenuName"> Encounters </div>
+				</div>
+			</div>
+		</div>
+		<!-- Header -->
+		<div id="pageHeader">
+			<div id="diceContainer">
+				<div id="diceD4" class="dice" style="background-image: url('./images/dices/d4.png')" ng-click="rollDice(4)"></div>
+				<div id="diceD6" class="dice" style="background-image: url('./images/dices/d6.png')" ng-click="rollDice(6)"></div>
+				<div id="diceD8" class="dice" style="background-image: url('./images/dices/d8.png')" ng-click="rollDice(8)"></div>
+				<div id="diceD10" class="dice" style="background-image: url('./images/dices/d10.png')" ng-click="rollDice(10)"></div>
+				<div id="diceD12" class="dice" style="background-image: url('./images/dices/d12.png')" ng-click="rollDice(12)"></div>
+				<div id="dice20" class="dice" style="background-image: url('./images/dices/d20.png')" ng-click="rollDice(20)"></div>
+			</div>
+			<div> </div>
+		</div>
+		<!-- /Header -->
+		<!-- Main -->
+		<div id="MainContainer">
+			<div class="leftColumn teamContainer">
+				<ul style="padding:0;" ng-repeat="hero in heroes | filter:{team:'heroes'}">
+					<div class="EachHeroContainer" id='heroes{{hero.ident}}' myTrack="{{hero.ident}}">
+						<div class="EachHero">
+							<div class="isTurn" ng-show="hero.turn">Turn!</div>
+							<div class="HeroImage" style="background-image:url('{{hero.image}}')">
+								<!--									    	 -->
+								<div id="HeroImageFilter{{$index}}" class="eachImageFilter"></div>
+							</div>
+							<div class="HeroName"> {{ hero.name }} </div>
+							<div class="eachLevelClass">{{hero.class}} Lv. {{hero.level}}</div>
+							<div class="HeroPVs"> {{hero.hp}}/<span>{{hero.maxHp}} </span> </div>
+							<div class="HeroStatus" style="background-color:{{hero.status}}"></div>
+						</div>
+						<div class="battleInfo">
+							<div class="battleInfoItem ca"><img src="images/icons-white/helmet.png" alt="ca icon">{{ hero.ac }} </div>
+							<div class="battleInfoItem for"> <img src="images/icons-white/meat.png" alt="fortitude icon">{{ hero.fortitude }} </div>
+							<div class="battleInfoItem ref"><img src="images/icons-white/boot.png" alt="reflexo icon">{{ hero.reflexes }} </div>
+							<div class="battleInfoItem wil "><img src="images/icons-white/head.png" alt="willpower icon">{{ hero.willpower }} </div>
+						</div>
+					</div>
+				</ul>
+			</div>
+			<!--fim do bloco a-->
+			<!--                        ///outros blocos    -->
+			<div class="middleColumn">
+				<div id="damageCalculator">
+					<div id="damageContainer">
+						<div id="dealDamage" class="damageValue">{{- CalcNumber}} </div>
+						<input id="damageInput" type="CalcNumber" data-ng-model="CalcNumber" ng-maxlength="3" />
+						<div id="healDamage" class="damageValue">{{'+' + CalcNumber}} </div>
+					</div>
+					<fieldset id="damageArea">
+						<div class="numberGroup">
+							<div ng-click="buttonValue(1)">
+								<button class="myCalcButton" type="submit">1</button>
+							</div>
+							<div ng-click="buttonValue(2)">
+								<button class="myCalcButton" type="submit">2</button>
+							</div>
+							<div ng-click="buttonValue(3)">
+								<button class="myCalcButton" type="submit">3</button>
+							</div>
+						</div>
+						<div class="numberGroup">
+							<div ng-click="buttonValue(4)">
+								<button class="myCalcButton" type="submit">4</button>
+							</div>
+							<div ng-click="buttonValue(5)">
+								<button class="myCalcButton" type="submit">5</button>
+							</div>
+							<div ng-click="buttonValue(6)">
+								<button class="myCalcButton" type="submit">6</button>
+							</div>
+						</div>
+						<div class="numberGroup">
+							<div ng-click="buttonValue(7)">
+								<button class="myCalcButton" type="submit">7</button>
+							</div>
+							<div ng-click="buttonValue(8)">
+								<button class="myCalcButton" type="submit">8</button>
+							</div>
+							<div ng-click="buttonValue(9)">
+								<button class="myCalcButton" type="submit">9</button>
+							</div>
+						</div>
+						<div class="numberGroup">
+							<div ng-click="buttonValue('')">
+								<button class="myCalcButton" type="submit"></button>
+							</div>
+							<div ng-click="buttonValue(0)">
+								<button class="myCalcButton" type="submit">0</button>
+							</div>
+							<div ng-click="resetField()">
+								<button class="myCalcButton" type="submit"> C</button>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+				<!--  fim do calculadora
+
+-->
+				<div id="soundEffects">
+					<h2 id="soundBoxTitle">Quick sounds</h2>
+					<div ng-repeat="sound in soundEffects | filter:{selected:'yes'}">
+						<div class="soundEffectHolder"> <img ng-click="playThis(sound)" src="images/icons/playPixel.png">
+							<div class="soundEffectName">{{sound.name}}</div>
+						</div>
+					</div>
+				</div>
+				<!--                fim dos sound effects-->
+			</div>
+			<!--  fim do bloco b-->
+			<div class="rightColumn  teamContainer teamContainerOtherSide">
+				<ul style="padding:0;" ng-repeat="monster in heroes | filter:{team:'Monsters'}">
+					<div class="EachHeroContainer EachHeroContainerOtherSide " id='monsters{{monster.ident}}' myTrack="{{monster.ident}}">
+						<div class="EachHero">
+							<div class="isTurn alignRight" ng-show="monster.turn">Turn!</div>
+							<div class="HeroImage alignRight" style="background-image:url('{{monster.image}}')">
+								<!--									    	 -->
+								<div id="HeroImageFilter{{$index}}" class="eachImageFilter"></div>
+							</div>
+							<div class="HeroName alignRight"> {{ monster.name }} </div>
+							<div class="eachLevelClass">{{monster.class}} Lv. {{monster.level}}</div>
+							<div class="HeroPVs alignRight"> {{monster.hp}}/<span>{{monster.maxHp}} </span> </div>
+							<div class="HeroStatus" style="background-color:{{monster.status}}"></div>
+							<div class="battleInfo ">
+								<div class="battleInfoItem">{{ monster.ac }}<img src="images/icons-white/helmet2.png" alt="ca icon"> </div>
+								<div class="battleInfoItem">{{ monster.fortitude }}<img src="images/icons-white/meat.png" alt="fortitude icon"> </div>
+								<div class="battleInfoItem">{{ monster.reflexes }}<img src="images/icons-white/boot.png" alt="reflexo icon"> </div>
+								<div class="battleInfoItem">{{ monster.willpower }}<img src="images/icons-white/head.png" alt="willpower icon"> </div>
+								<!--
+<div><img src="images/icons/perception.png" alt="perception icon">{{ monster.perception}} </div>
+<div><img src="images/icons/bba.png" alt="bba icon">+{{monster.hitModifier}} </div>
+--></div>
+						</div>
+					</div>
+				</ul>
+			</div>
+			<!--  fim do bloco c-->
+			<!--								overlay heroes hidden div-->
+			<div id="overlayHeroContainer" class="overlayContainer">
+				<div class="overlayBlack" ng-click="hideMyParent()"></div>
+				<div id="overlayHeroInfo" class="overlayContent">
+					<div class="overlayCloseButton" ng-click="hideMy2Parents()">X</div>
+					<div id="editorContainer">
+						<div class="editEach">
+							<form id="editorFormLabels">
+								<div style="margin-top:5vh;">Name:</div>
+								<div>Level:</div>
+								<div>Max HP:</div>
+								<div>CA:</div>
+								<div>Strong:</div>
+								<div>Ref:</div>
+								<div>willpower:</div>
+								<div>Damage:</div>
+								<div>bba:</div>
+							</form>
+						</div>
+						<div class="editEach" ng-repeat="hero in heroes | filter:{team:whichTeam}">
+							<form id="editorForm">
+								<div class="HeroImageEdit" style="height:5vh;width:50%;margin-left:25%;background-size:contain;background-image:url('{{hero.image}}')"></div>
+								<input type="text" data-ng-model="hero.name" />
+								<input type="number" data-ng-model="hero.level" />
+								<input type="number" data-ng-model="hero.maxHp" />
+								<input type="number" data-ng-model="hero.ca" />
+								<input type="number" data-ng-model="hero.fortitude" />
+								<input type="number" data-ng-model="hero.reflexes" />
+								<input type="number" data-ng-model="hero.willpower" />
+								<input type="number" data-ng-model="hero.hitModifier" />
+								<input type="number" data-ng-model="hero.damageModifier" />
+								<!--
+									<div><img src="images/icons/armor.png" alt="ca icon">{{ hero.ca }} </div>
+									<div> <img src="images/icons/meat.png" alt="fortitude icon">{{ hero.fortitude }} </div>
+									<div><img src="images/icons/boot.png" alt="reflexo icon">{{ hero.reflexes }} </div>
+									<div><img src="images/icons/head.png" alt="willpower icon">{{ hero.willpower }} </div>
+									-->
+							</form>
+						</div>
+						<div ng-click="addCharacter(whichTeam)">+ ADD {{whichTeam}} + </div>
+					</div>
+				</div>
+			</div>
+			<!-- fim overlay heroes hidden div			-->
+			<!--								overlay name hidden div-->
+			<div id="namesListContainer" class="overlayContainer">
+				<div class="overlayBlack" ng-click="hideMyParent()"></div>
+				<div class="overlayContent" id="namesList">
+					<div class="overlayCloseButton" ng-click="hideMy2Parents()">X</div>
+				</div>
+			</div>
+			<!--								overlay name hidden div-->
+		</div>
+		<!-- /Main -->
+		<div id="pageFooter" class="withImageBorder">
+			<div id="footerIconHolder">
+				<div class="menuIconHolder"> <img id="soundTrackPlayButton" src="images/icons/playPixel.png" ng-click="soundTrackManager('selectedSong')">
+					<select id="song" ng-model="soundTrackOption">
+						<option value="selectsong">Select a track</option>
+						<option value="rainSoundtrack"> Rain </option>
+						<option value="citySoundtrack"> City </option>
+					</select>
+				</div>
+				<div class="menuIconHolder" ng-click="nameGenerator()"> <img src="images/icons/namesIcon.png">
+					<div class="menuIconName">Name Gen </div>
+				</div>
+<!--
+				<div class="menuIconHolder" ng-click="rollInitiative()"> <img src="images/icons/mago.png">
+					<div class="menuIconName">Next Round </div>
+				</div>
+-->
+				<!--
+					<div class="menuIconHolder" > <a href="/dice/index.html"> <img src="images/icons/namesIcon.png"> </a><div class="menuIconName" >DADOS 3D </div></div>  
+					<div class="menuIconHolder"> <img src="images/icons/charsIcon.png" ng-click="showThisWindow('heroes')"><div class="menuIconName">Edit Chars </div></div>  
+					<div class="menuIconHolder" ng-click="showThisWindow('monsters')">  <img src="images/icons/monsIcon.png"><div class="menuIconName"> Edit Monsters </div></div> 
+					-->
+				<div class="menuIconHolder" ng-click="showThisWindow('')"> <img src="images/icons/char.png">
+					<div class="menuIconName"> Manage Chars </div>
+				</div>
+			</div>
+		</div>
+		<!--
+			3d dices
+			<div id="borderTest"></div>
+			<div ng-include="'./dice/index.html'">
+			</div>
+--></div>
+	<!--	end page-->
+	<audio id="selectedSong">
+		<source src="./sounds/diceroll.mp3" type="audio/mp3" /> </audio>
+	<!-- script references -->
+	<!--	Jquery-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<!--Jquery UI and TouchPunch	-->
+	<script src="js/vendor/jquery-ui.min.js"></script>
+	<script src="./js/vendor/jquery.ui.touch-punch.min.js"></script>
+	<!--Angular -->
+	<script src="js/vendor/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	<!--Code -->
+	<script src="js/controller/rpgHelperController.js"></script>
+	<script src="js/services/rpgHelperService.js"></script>
+	<script src="js/services/soundService.js"></script>
+	<!--        
+<!-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+	<script>
+		//Setting minimum   viewport
+		window.onload = function () {
+			if (window.innerWidth <= 360) {
+				var mvp = document.getElementById('myViewport');
+				mvp.setAttribute('content', 'width=360');
+			}
+		}
+	</script>
+</body>
+
+</html>

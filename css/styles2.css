@@ -1,0 +1,976 @@
+/*/
+Created by Samuel Costa - Samuelddc9@gmail.com  Skype: Samuel.DW www.samuelcosta.com.br
+
+CSS Layout: 
+
+1= Generic Elements
+2= Layout grids 
+3= Character Groups 
+4= Calculator in the middle
+5= Sound Effects
+6= Footer
+7= Generic Overlay Classes
+7= Overlay: List of characters
+8= Overlay: Name generator
+9= Media Queries
+
+*/
+
+
+/*1= Generic Elements*/
+
+html {
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+	font-variant: small-caps;
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+
+body {
+	padding: 0px;
+	margin: 0 auto;
+	width: 100vw;
+	overflow-x: hidden;
+	box-sizing: border-box;
+}
+
+img {
+	/*    max-height: 100%;*/
+	/*    max-width: 100%;*/
+}
+
+
+/* 2= Layout grids  GRIDS E COLUNAS---------------------------------------------------*/
+
+#mainMenu {
+	box-sizing: border-box;
+	z-index: 3;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-image: url("../images/bg-pattern.jpg");
+	color: white;
+	text-align: center;
+	-webkit-transition-duration: 3;
+	transition-duration: 0.7s;
+	position: fixed;
+}
+
+.slidedRight {
+	margin-left: 100%;
+}
+
+#menuLogo {
+	/*    background-color: aqua;*/
+	margin-top: 10%;
+	width: 65%;
+	max-width: 500px;
+}
+
+#mainMenuItemHolder {
+	width: 100%;
+	/*    height: 1%;*/
+	/*    background-color: aqua;*/
+}
+
+.mainMenuItem {
+	/*    background-color: aqua;*/
+	margin: 5%;
+	float: left;
+	width: 35vw;
+	height: 10vh;
+}
+
+.mainMenuIcon {
+	cursor: pointer;
+	height: 100%;
+}
+
+#pageHeader {
+	position: relative;
+	height: 8vh;
+	background-color: #222;
+	/*		border-image:url(../images/border.jpg);*/
+	/*
+	 
+  border-image-slice: 100;
+  border-image-width: 30;
+  border-image-outset: 1;
+*/
+}
+
+#MainContainer {
+	box-sizing: border-box;
+	margin: 0 auto;
+	height: 83.9vh;
+	/*	width: 99vw;*/
+	/*	width: 320px;*/
+	max-width: 800px;
+	border-width: 0;
+	overflow-x: hidden;
+	padding-left: 4px;
+	padding-right: 4px;
+	position: relative;
+	/*		background-image: url(/images/bg-pattern.jpg);	*/
+	/*    background-size: cover;*/
+	/*background-color: blue;*/
+}
+
+#pageFooter {
+	position: relative;
+	color: white;
+	background-color: #333;
+	height: 8vh;
+	max-height: 8vh;
+	width: 100%;
+	box-sizing: border-box;
+	-webkit-box-shadow: 3px -2px 2px black;
+}
+
+#footerIconHolder {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	box-sizing: border-box;
+	padding-top: 5px;
+	/*background-color: antiquewhite;*/
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: flex-start;
+	-webkit-align-content: center;
+	/*	-ms-flex-line-pack: cente;*/
+	/*	align-content: flex-start*/
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	-webkit-box-pack: justify;
+	justify-content: space-around;
+	font-size: 70%;
+	text-align: center;
+	font-weight: bolder;
+}
+
+#song {
+	/*	height: 25px;*/
+	/*	padding: 3px;*/
+	border-radius: 5px;
+	color: white;
+	background-color: dimgray;
+}
+
+#soundTrackPlayButton {
+	height: 30px;
+}
+
+#song {
+	max-height: 2vh;
+}
+
+.menuIconHolder {
+	/*    position: relative;*/
+	height: 70%;
+	max-height: 100%;
+	line-height: 50%;
+	/*    background-color: aqua;*/
+	cursor: pointer;
+}
+
+.menuIconHolder img {
+	max-height: 100%;
+	cursor: pointer;
+}
+
+.leftColumn {
+	clear: left;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	float: left;
+	width: 25%;
+}
+
+.middleColumn {
+	text-align: center;
+	width: 50%;
+	padding-top: 10px;
+	/*	min-width:200px;*/
+	margin: 0;
+	/*    */
+	/*    border: 0;*/
+	/*	overflow-y: hidden;*/
+	float: left;
+}
+
+.rightColumn {
+	/*clear: right;*/
+	/*	margin: 0;*/
+	padding: 0;
+	/*    border: 0;*/
+	/*    float: right;*/
+	width: 25%;
+}
+
+
+/*FIM GRIDS E COLUNAS---------------------------------------------------*/
+
+
+/* 3= Character Groups  HEROOOOOOOOOOOOOOOO CONTAINTER------------------------------------*/
+
+.teamContainer {
+	position: relative;
+	/*	min-width:190px;*/
+	height: 100%;
+	overflow-x: hidden;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	/*	justify-content: space-between;*/
+	/*	background-color:red*/
+}
+
+.teamContainer::-webkit-scrollbar {
+	width: 4px;
+}
+
+.teamContainer::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	background-color: lightgray;
+}
+
+.teamContainer::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: gray;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.teamContainerOtherSide {
+	/*	float: right;*/
+	right: 0;
+	/*	margin-right: 0px;*/
+	/*text-align: center;*/
+}
+
+
+/*EACH HEROOOOOOOOOOOOOOOO ------------------------------------*/
+
+.EachHeroContainer {
+	position: relative;
+	/*    max-width:22vh;*/
+	/*    border: solid white 3px;*/
+	/*    box-shadow: 1px 1px 2px gray;*/
+	width: 100%;
+	height: 100%;
+	min-height: 80px;
+	/*	padding-top: -0px;*/
+	/*	min-width: 100px;*/
+	/*	background-color:lightgray;*/
+	max-width: 150px;
+}
+
+.EachHeroContainerOtherSide {
+	float: right;
+	right: 0;
+	margin-right: 0px;
+}
+
+.HeroImage {
+	position: absolute;
+	width: 80%;
+	height: 100%;
+	/*    background-image:url('../images/orc.jpg');*/
+	background-size: cover;
+	top: 0px;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.7);
+	/*	border: solid lightgrey 2px;*/
+	/*			border-image:url(../images/border.jpg);*/
+	/*  border-image-slice: 100;*/
+	/*  border-image-width: 10;*/
+	/*  border-image-outset: ;*/
+}
+
+.border {
+	border: solid gray 3px;
+	box-sizing: border-box;
+}
+
+.ativo {
+	border: solid pink 1px;
+}
+
+.HeroName {
+	position: absolute;
+	color: white;
+	text-shadow: 0px 0px 3px black;
+	margin-top: -10pt;
+	/**/
+	font-weight: 600;
+	font-size: 16pt;
+	top: 0;
+}
+
+.HeroName {
+	color: #666;
+	text-shadow: none;
+	margin-top: -16.5pt;
+	/*    text-align: left;*/
+	top: 0;
+	/*    background-color: lightgray;*/
+	width: 100%;
+}
+
+.otherSide {
+	text-align: right;
+}
+
+.HeroPVs {
+	position: absolute;
+	color: white;
+	/*    font-size: 100%;*/
+	font-family: 'Droid Sans', sans-serif;
+	text-shadow: 0px 0px 2px black;
+	font-weight: 600;
+	bottom: 0px;
+}
+
+.HeroPVs span {
+	font-size: 80%;
+}
+
+.HeroStatus {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	height: 10px;
+	width: 10px;
+	box-shadow: 0px 0px 1px 0px black;
+	border-radius: 5px;
+	margin: 4px;
+	opacity: 20%;
+}
+
+.battleInfo {
+	position: absolute;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	/*	-ms-flex-direction: column;*/
+	/*	flex-direction: column;*/
+	/*	border: solid grey 1px;*/
+	right: 0;
+	/*	margin-right: -20%;*/
+	font-weight: bold;
+	font-size: 12pt;
+	font-family: sans-serif;
+	height: 100%;
+	/*	width: 80px;*/
+	color: #444;
+}
+
+.ca {
+	background-color: skyblue;
+}
+
+.wil {
+	background-color: chartreuse;
+}
+
+.ref {
+	background-color: cadetblue
+}
+
+.for {
+	background-color: darksalmon
+}
+
+.battleInfo img {
+	max-height: 80%;
+}
+
+.battleInfoItem {
+	height: 25%;
+	background-color: white;
+	/*   font-family: 'Source Sans Pro', sans-serif;*/
+}
+
+.battleInfoOtherSide {
+	left: 0;
+	/*	margin-left: -40px;*/
+	right: auto;
+}
+
+#HeroImageFilter1 {
+	opacity: 0.4;
+}
+
+.eachImageFilter {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: red;
+	opacity: 0.4;
+	display: none;
+}
+
+.eachLevelClass {
+	position: absolute;
+	right: 0;
+	color: white;
+	margin-right: 3px;
+	font-weight: bold;
+	font-family: sans-serif;
+	font-size: 10pt;
+	text-shadow: none;
+	display: none;
+}
+
+.isTurn {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin-top: auto;
+	margin-bottom: auto;
+	color: white;
+	border-radius: 5px;
+	z-index: 10;
+	width: 35px;
+	height: 10px;
+	padding: 5px;
+	/*	box-shadow: 2px 2px 5px gray;*/
+	font-size: 70%;
+	font-family: sans-serif;
+	background-color: firebrick;
+	font-weight: bold;
+	text-align: center;
+}
+
+.alignRight {
+	float: right;
+	right: 0;
+	left: inherit;
+	margin-right: 0px;
+}
+
+
+/*FIM EAACH HEROOOOOOOOOOOOOOOOO -------------------------------------------------------*/
+
+
+/* 4= Calculator in the middle --------------DAMAGE CALCULATOR-------------------------*/
+
+#damageArea {
+	margin-top: -10px;
+}
+
+fieldset {
+	/*	background-color: aliceblue;*/
+	border: none;
+	padding-left: 0px;
+	padding-right: 0px;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+#damageInput {
+	max-width: 80px;
+	height: 30px;
+	width: 20%;
+	border-radius: 5px;
+}
+
+.myCalcButton {
+	float: left;
+	width: 31%;
+	padding-top: 2vw;
+	padding-bottom: 2vw;
+	background-color: #222;
+	border: solid #222 1px;
+	color: white;
+	font-size: 200%;
+	font-weight: 700;
+	margin-left: 1%;
+	margin-right: 1%;
+	/*	box-shadow: inset 0px 0px 40px 1px gray;*/
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+#damageCalculator {
+	position: relative;
+	/*	border: solid gray 2px;*/
+	background-color: #222;
+	border-radius: 6px;
+	padding: 0px;
+	box-shadow: 1px 1px 3px black;
+	/*				border-image:url(../images/border.jpg);*/
+	border-image-slice: 100;
+	border-image-width: 20;
+	border-image-outset: 1;
+}
+
+.damageValue {
+	cursor: -webkit-grab;
+	cursor: grab;
+	font-size: 3.5vh;
+	font-weight: 600;
+	background-size: contain;
+	width: 7vh;
+	height: 7vh;
+	line-height: 7vh;
+	color: white;
+	/*	margin-top:3px;*/
+	/*	pad*/
+	text-shadow: 0px 0px 6px black;
+	/*
+text-shadow: 0 1px 0 grey, 
+               0 -2px 0 grey,
+               -1px -2px 0 grey,
+               -1px 3px 0 grey,
+               
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+*/
+	background-repeat: no-repeat;
+}
+
+#healDamage {
+	background-image: url("../images/icons/Pixel_heart_icon.png");
+}
+
+#dealDamage {
+	background-image: url(../images/icons/pow.png);
+}
+
+#damageContainer {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	/*    background-color: grey;*/
+	-ms-flex-align: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+}
+
+
+/*-------------------------SOUND EFFECTS ------------*/
+
+#soundEffects {
+	box-sizing: border-box;
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: space-between;
+	/*	-ms-flex-pack: distribute;*/
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	/*	flex-wrap: wrap;*/
+	/*	-webkit-align-content: space-between;*/
+	/*	-ms-flex-line-pack: distribute;*/
+	/*	align-content: space-around;*/
+	background-color: #222;
+	border-radius: 6px;
+	margin-top: 1vh;
+	padding: 10px;
+	/*	box-shadow: 0px 1px 6px gray;*/
+	height: 20vh;
+	color: white;
+	font-size: 70%;
+	text-align: center;
+	text-shadow: 0 0 0;
+	text-align: center;
+	overflow-y: scroll;
+}
+
+#soundEffects::-webkit-scrollbar {
+	width: 4px;
+	height: 4px
+}
+
+#soundEffects::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	background-color: lightgray;
+}
+
+#soundEffects::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: gray;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.soundEffectHolder {
+	max-width: 40px;
+}
+
+#soundEffects img {
+	width: 30px;
+	padding: 1vh;
+	cursor: pointer;
+}
+
+#soundBoxTitle {
+	top: 0;
+	margin-top: -5px;
+	position: absolute;
+	text-shadow: 0px 0px 2px black;
+	right: 0;
+	left: 0;
+	font-size: 180%;
+	display: none;
+}
+
+
+/*DICES */
+
+.dice {
+	cursor: pointer;
+	background-clip: content-box;
+	background-size: contain;
+	height: 80%;
+	width: 6vh;
+	background-repeat: repeat-y;
+	/*	border: solid white 2px;*/
+	overflow: visible;
+	z-index: 2;
+}
+
+.beingDraggedOFF {
+	position: absolute;
+	height: 160%;
+	width: 12vh;
+}
+
+.dice:hover {
+	/*	height: 110%;*/
+	/*    width: 7vh;*/
+}
+
+#diceContainer {
+	-webkit-justify-content: space-around;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	/*	display: flex;;*/
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 100%;
+	height: 90%;
+	/*	border: solid blue 2px;*/
+	-webkit-box-shadow: 3px 1px 2px black;
+}
+
+
+/*GENERIC OVERLAYS CLASSSES */
+
+.overlayContainer {
+	display: none;
+	position: fixed;
+	top: 0;
+}
+
+.overlayContent {
+	position: absolute;
+	margin-left: 3vh;
+	height: 60vh;
+	width: 90vw;
+	background-color: dimgrey;
+	opacity: 0.97;
+	border-radius: 20px;
+	text-align: center;
+	color: white;
+	margin-top: 15vh;
+}
+
+.overlayBlack {
+	top: 0;
+	left: 0;
+	opacity: 0.8;
+	padding: 0px;
+	background-color: black;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+}
+
+.overlayCloseButton {
+	position: absolute;
+	right: 0;
+	margin-right: -20px;
+	margin-top: -20px;
+	cursor: pointer;
+	font-weight: bolder;
+	background-color: white;
+	color: dimgray;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	font-size: 30pt;
+	font-family: sans-serif;
+}
+
+
+/*END GENERIC OVERLAYS CLASSSES */
+
+#namesList {
+	box-sizing: border-box;
+	padding: 40px;
+	font-weight: bolder;
+	font-size-adjust: 10%;
+	background-color: dimgray;
+	/*	overflow: scroll;*/
+}
+
+.editEach {
+	text-align: center;
+	width: 80px;
+	font-size: 10pt;
+	height: 90%;
+}
+
+.editEach div {
+	font-size: 10pt;
+	padding-top: 4px;
+}
+
+#editorContainer {
+	padding-top: 30px;
+	display: -webkit-box;
+	/*	display: -webkit-flex;*/
+	display: -ms-flexbox;
+	/*	display: flex;*/
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	width: 95%;
+	height: 90%;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	overflow-x: scroll;
+}
+
+#editorForm label input {
+	width: 80px;
+	display: inline-block;
+}
+
+#editorForm {}
+
+#borderTest {
+	height: 200px;
+	width: 200px;
+	background-color: red;
+	-o-border-image: url(../images/border.jpg);
+	border-image: url(../images/border.jpg);
+	border-image-slice: 100;
+	border-image-width: 15;
+	border-image-outset: 5;
+}
+
+#editorForm input {
+	width: 51%;
+	background-color: grey;
+	border: none;
+	margin: 1px;
+	color: white;
+	padding-left: 0px;
+}
+
+.withImageBorder {
+	box-sizing: border-box;
+	/*    			border-image:url(../images/border.jpg);*/
+	border-image-slice: 100;
+	border-image-width: 20;
+	border-image-outset: 1;
+}
+
+
+/* 9= Media Queries -------------------------------------------------------
+Media UQeire
+*/
+
+@media screen and (max-width: 320px) {
+	body {
+		/*        background-color: lightgreen;*/
+	}
+	.HeroImage {
+		position: relative;
+		width: 100%;
+		/*    height: 70%;*/
+		height: 50px;
+		background-position: top;
+		opacity: 0.95;
+	}
+	.battleInfo {
+		position: relative;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		-ms-flex-align: center;
+		-webkit-justify-content: space-around;
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: row;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		/*	border: solid grey 1px;*/
+		bottom: 0;
+		top: auto;
+		margin-bottom: -0px;
+		height: 30%;
+		width: 100%;
+		background-color: gainsboro;
+	}
+	.battleInfoItem {
+		background-color: gainsboro;
+		height: 0%;
+	}
+	.battleInfoItem img {
+		background-color: gainsboro;
+		height: 15px;
+	}
+	.HeroPVs {
+		bottom: 0px;
+		margin-bottom: 50px;
+	}
+	.HeroName {
+		/*	    background-color: black;*/
+		width: 100%;
+		font-size: 13pt;
+	}
+	.EachHeroContainer {
+		width: 95%;
+	}
+	#damageInput {
+		display: none;
+	}
+}
+
+
+/*//Just to  test other layous*/
+
+@media screen and (max-width: 100000px) {
+	body {
+		/*        background-color: lightgreen;*/
+	}
+	.HeroImage {
+		position: relative;
+		width: 100%;
+		left: 0;
+		margin-left: 1%;
+		height: 9vh;
+		background-position: top;
+	}
+	.battleInfo {
+		position: relative;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-justify-content: space-around;
+		-ms-flex-pack: distribute;
+		justify-content: space-around;
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: row;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		/*
+	bottom: 0;
+	top: auto;
+	margin-bottom: -0px;
+*/
+		height: 30%;
+		width: 100%;
+		background-color: #333;
+		color: white;
+	}
+	.battleInfoItem {
+		width: 23%;
+		background-color: #333;
+		padding: 1%;
+	}
+	.battleInfoItem img {
+		background-color: #333;
+		height: 15px;
+	}
+	.HeroPVs {
+		bottom: 0px;
+		margin-bottom: 50px;
+	}
+	.HeroName {
+		/*	    background-color: black;*/
+		width: 100%;
+		font-size: 13pt;
+		margin-top: -13pt
+	}
+	.EachHeroContainer {
+		width: 95%;
+	}
+	#damageInput {
+		display: none;
+	}
+}
